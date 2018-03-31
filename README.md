@@ -1,1 +1,1 @@
-Application for appointment making (admin GUI for business and client GUI for clients)... user is able to see aviable timeslots and appoint/cancel/change his appointments. Made in micro-service architecture with Spring Boot, Feign, Ribbon, Eureka, Zipkin and Zuul
+Application for appointment making.  user is able to see aviable timeslots and appoint/cancel/change his appointments. Made in micro-service architecture with Spring Boot, Feign, Ribbon, Eureka, Zipkin and Zuul
