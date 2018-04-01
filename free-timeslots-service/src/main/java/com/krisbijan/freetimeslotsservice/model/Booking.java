@@ -16,7 +16,7 @@ import java.util.List;
 
 @Table
 @Entity
-public class Booking {
+public class Booking implements Comparable<Booking>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,12 +41,12 @@ public class Booking {
 	private Integer fromHour;
 	@Column
 	@Min(0)
-	@Max(23)
-	private Integer toHour;
-	@Column
-	@Min(0)
 	@Max(59)
 	private Integer fromMin;
+	@Column
+	@Min(0)
+	@Max(23)
+	private Integer toHour;
 	@Column
 	@Min(0)
 	@Max(59)
@@ -127,5 +127,15 @@ public class Booking {
 	}
 
 	public Booking() {
+	}
+
+	@Override
+	public int compareTo(Booking o) {
+		if(this.fromHour==o.fromHour && this.toHour==o.toHour && this.fromMin==o.fromMin && this.toMin==o.toMin)
+			return 0;
+		else if ((this.fromHour<o.fromHour) || (this.fromHour==o.fromHour && this.fromMin<o.fromMin))
+			return -1;
+		else
+			return 1;
 	}
 }

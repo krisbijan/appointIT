@@ -1,6 +1,7 @@
 package com.krisbijan.freetimeslotsservice.controller;
 
 import com.krisbijan.freetimeslotsservice.model.Booking;
+import com.krisbijan.freetimeslotsservice.model.Day;
 import com.krisbijan.freetimeslotsservice.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,9 +19,9 @@ public class BookingController {
     private BookingService bookingService;
 
     @GetMapping("/bookings/{year}/{month}/{day}")
-    public ResponseEntity<List<Booking>> findBookingsForDay(@PathVariable Integer day,@PathVariable Integer month,@PathVariable Integer year){
-        List<Booking> bookings = bookingService.findBookingsForDay(year, month, day);
-        return new ResponseEntity<>(bookings,HttpStatus.OK );
+    public ResponseEntity<Day> findBookingsForDay(@PathVariable Integer day, @PathVariable Integer month, @PathVariable Integer year){
+        Day dayOut = bookingService.findBookingsForDay(year, month, day);
+        return new ResponseEntity<>(dayOut,HttpStatus.OK );
     }
 
 }
