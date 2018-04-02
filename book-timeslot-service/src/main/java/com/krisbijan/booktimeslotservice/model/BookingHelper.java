@@ -6,7 +6,8 @@ public class BookingHelper {
     private  Integer to;
 
     public BookingHelper(Booking booking){
-
+        this.from = booking.getFromHour()*60+booking.getFromMin();
+        this.to = booking.getToHour()*60+booking.getToMin();
     }
 
     public Integer getFrom() {

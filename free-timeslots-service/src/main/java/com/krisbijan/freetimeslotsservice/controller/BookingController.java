@@ -19,7 +19,7 @@ public class BookingController {
     private BookingService bookingService;
 
     @GetMapping("/bookings/{year}/{month}/{day}")
-    public ResponseEntity<Day> findBookingsForDay(@PathVariable Integer day, @PathVariable Integer month, @PathVariable Integer year){
+    public ResponseEntity<Day> findBookingsForDay(@PathVariable Integer year, @PathVariable Integer month, @PathVariable Integer day){
         Day dayOut = bookingService.findBookingsForDay(year, month, day);
         return new ResponseEntity<>(dayOut,HttpStatus.OK );
     }
